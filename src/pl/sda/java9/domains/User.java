@@ -1,4 +1,4 @@
-package pl.sda.java9.database.domains;
+package pl.sda.java9.domains;
 
 public class User {
 
