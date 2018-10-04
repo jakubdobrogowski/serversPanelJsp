@@ -1,7 +1,7 @@
 package pl.sda.java9.database.daos;
 
 import pl.sda.java9.database.DatabaseConector;
-import pl.sda.java9.database.domains.User;
+import pl.sda.java9.domains.User;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
