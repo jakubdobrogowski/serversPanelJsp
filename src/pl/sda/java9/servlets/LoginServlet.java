@@ -3,6 +3,7 @@ package pl.sda.java9.servlets;
 import pl.sda.java9.database.daos.ServerDao;
 import pl.sda.java9.database.daos.UserDao;
 import pl.sda.java9.domains.User;
+import pl.sda.java9.utils.CommonUtils;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -50,7 +51,7 @@ public class LoginServlet extends HttpServlet {
             return;
         }
 
-        request.setAttribute("allUsers", createUserMap(UserDao.getAllUsers()));
+        request.setAttribute("allUsers", CommonUtils.createUserMap(UserDao.getAllUsers()));
         request.setAttribute("allServers", ServerDao.getAllServers());
 
         session.setAttribute("user", userByLogin.getLogin());
@@ -60,18 +61,6 @@ public class LoginServlet extends HttpServlet {
 
         RequestDispatcher rs = request.getRequestDispatcher("/serverList.jsp");
         rs.forward(request, response);
-    }
-
-    public static HashMap<Integer, User> createUserMap(List<User> userList) {
-
-        HashMap<Integer, User> userMap = new HashMap<>();
-
-        for (User user : userList) {
-
-            userMap.put(user.getId(), user);
-        }
-
-        return userMap;
     }
 
 }
